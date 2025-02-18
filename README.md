@@ -1,4 +1,4 @@
-# Task2 - SQL Alchemy with Postgres
+# SQL Alchemy with Postgres
 ## **Assignment:** Movie Streaming Platform Database Using SQL-Alchemy
 
 ### **Objective:**
