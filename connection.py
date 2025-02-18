@@ -6,10 +6,10 @@ server = "localhost"
 port = "5432"
 database = "task2"
 
-engine = create_engine(f'postgresql://{user}:{password}@{server}:{port}/{database}', echo=True)
+engine = create_engine(f'postgresql://{user}:{password}@{server}:{port}/{database}', echo=False)
 
 try:
     with engine.connect() as connection:
-        print("Connected")
+        print("\nConnected to database.")
 except Exception as e:
     print(f"Error: {e}")
