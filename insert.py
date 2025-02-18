@@ -22,11 +22,22 @@ review_1, review_2, review_3, review_4 = [
     create_review( user_2, movie_3, 2, 'Movie was mediocre.'),
 ]
 
-session.add_all([
-    user_1, user_2,
-    movie_1, movie_2, movie_3,
-    review_1, review_2, review_3, review_4,
-])
 
-session.commit()
-session.close()
+with session.begin():
+    try:
+        session.add_all([
+            user_1, user_2,
+            movie_1, movie_2, movie_3,
+            review_1, review_2, review_3, review_4,
+        ])
+
+    except Exception as e:
+        print(f'Error:{e}')
+        session.rollback()
+
+    else:
+        session.commit()
+        print("Data Added.")
+
+    finally:
+        session.close()

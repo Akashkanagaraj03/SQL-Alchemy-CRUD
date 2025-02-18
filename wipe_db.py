@@ -4,11 +4,19 @@ from models import *
 
 session = Session(engine)
 
-session.query(Review).delete()
-session.query(User).delete()
-session.query(Movie).delete()
+with session.begin():
+    try:
+        session.query(Review).delete()
+        session.query(User).delete()
+        session.query(Movie).delete()
 
+    except Exception as e:
+        print(f'Error:{e}')
+        session.rollback()
 
-session.commit()
+    else:
+        session.commit()
+        print("All data has been deleted.")
 
-print("All data has been deleted.")
+    finally:
+        session.close()

@@ -4,10 +4,18 @@ from sqlalchemy.orm import Session
 
 session = Session(bind = engine)
 
-update_item = session.query(Review).filter_by(user_id = 4, movie_id = 6).first()
+with session.begin():
+    try:
+        update_item = session.query(Review).filter_by(user_id = 4, movie_id = 6).first()
+        update_item.review_txt = "Edited movie review" if update_item else print("Item does not exist")
 
-update_item.review_txt = "Edited movie review"
+    except Exception as e:
+        print(f'Error:{e}')
+        session.rollback()
 
-session.commit()
-session.close()
+    else:
+        session.commit()
+        print("Data Updated.")
 
+    finally:
+        session.close()
