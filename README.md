@@ -9,9 +9,9 @@
 #### **1. Design the Following Database Models:**
    
 **User Table**
-  * id – Primary Key
-  * name – String (Not Null)
-  * email – String (Unique)
+* id – Primary Key
+* name – String (Not Null)
+* email – String (Unique)
 
 **Movie Table**
 * id – Primary Key
