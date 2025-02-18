@@ -39,3 +39,12 @@ class Review(Base):
         CheckConstraint('rating BETWEEN 0 AND 5', name='check_rating_range'),
     )
 
+
+def create_user(name, email):
+    return User(name = name, email = email)
+
+def create_movie(title, genre, release_year):
+    return Movie(title = title, genre = genre, release_year = release_year)
+
+def create_review(user, movie, rating, review_txt):
+    return Review(user = user, movie = movie, rating = rating, review_txt = review_txt)
