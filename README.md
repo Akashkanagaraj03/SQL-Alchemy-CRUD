@@ -8,30 +8,30 @@
 ### **Requirements:**
 #### **1. Design the Following Database Models:**
    
-**User Table**
-* id – Primary Key
-* name – String (Not Null)
-* email – String (Unique)
-
-**Movie Table**
-* id – Primary Key
-* title – String (Not Null)
-* genre – String
-* release_year – Integer
-
-
-**Review Table**
-* id – Primary Key
-* user_id – Foreign Key (references User.id)
-* movie_id – Foreign Key (references Movie.id)
-* rating – Integer (1 to 5)
-* review_text – String
+   **User Table**
+   * id – Primary Key
+   * name – String (Not Null)
+   * email – String (Unique)
+   
+   **Movie Table**
+   * id – Primary Key
+   * title – String (Not Null)
+   * genre – String
+   * release_year – Integer
+   
+   
+   **Review Table**
+   * id – Primary Key
+   * user_id – Foreign Key (references User.id)
+   * movie_id – Foreign Key (references Movie.id)
+   * rating – Integer (1 to 5)
+   * review_text – String
 
 
 #### **2. Relationships:**
-* One User can submit many Reviews.
-* One Movie can have many Reviews.
-* Each Review is written by one User for one Movie.
+   * One User can submit many Reviews.
+   * One Movie can have many Reviews.
+   * Each Review is written by one User for one Movie.
 
 
 #### **3. Functional Requirements (Tasks to Perform in Code):**
